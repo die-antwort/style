@@ -89,6 +89,9 @@ Style/SingleLineBlockParams: # Block params should be as meaningful as possible
 Style/StringLiterals: # Both '…' and "…" are okay for all kinds of strings
   Enabled: false
 
+Style/TrailingCommaInArguments: # Multiline parameter lists need a trailing comma (like literals)
+  EnforcedStyleForMultiline: consistent_comma
+
 Style/WordArray: # Especially in nested arrays consistence is important (even if some of the inner arrays could be replace by word arrays)
   Enabled: false
 
