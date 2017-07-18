@@ -96,13 +96,10 @@ Style/WordArray: # Especially in nested arrays consistence is important (even if
   Enabled: false
 
 
-# Enforce our preferred styling choices
+# Enforce our preferred layout and styling choices
 
 Layout/AlignParameters:
   EnforcedStyle: with_fixed_indentation
-
-Style/AndOr: # `and` and `or` may be used for control flow (but not in conditionals)
-  EnforcedStyle: conditionals
 
 Layout/DotPosition: # Trailing dot works better with intermittent blank lines and copy-pasting into irb
   EnforcedStyle: trailing
@@ -121,6 +118,9 @@ Layout/SpaceBeforeBlockBraces:
 
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
+
+Style/AndOr: # `and` and `or` may be used for control flow (but not in conditionals)
+  EnforcedStyle: conditionals
 
 Style/SpecialGlobalVars: # `$!` is okay, and we don’t use the other Perl-ish globals anyway
   Enabled: false
