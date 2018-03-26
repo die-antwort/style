@@ -36,7 +36,13 @@ Performance/RedundantMerge:
   Enabled: false
 
 
-# Disable various style cops
+# Disable various name and style cops
+
+Naming/UncommunicativeBlockParamName: # If a param name is “communicative” can’t be decided based only on syntax
+  Enabled: false
+
+Naming/UncommunicativeMethodParamName: # If a param name is “communicative” can’t be decided based only on syntax
+  Enabled: false
 
 Style/AsciiComments: # Typographic quotes etc. are perfectly okay in comments
   Enabled: false
