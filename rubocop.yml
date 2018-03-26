@@ -62,9 +62,6 @@ Style/Documentation:
 Style/EmptyCaseCondition: # Sometimes a case statement reads better than if … elsif … end
   Enabled: false
 
-Layout/EmptyLines: # Consecutive empty lines are sometimes useful for additional structure
-  Enabled: false
-
 Style/FormatString: # All `sprintf`, `format`, and `%` are okay for formatting strings
   Enabled: false
 
@@ -109,6 +106,9 @@ Layout/AlignParameters:
 
 Layout/DotPosition: # Trailing dot works better with intermittent blank lines and copy-pasting into irb
   EnforcedStyle: trailing
+
+Layout/EmptyLines: # Consecutive empty lines are sometimes useful for additional structure
+  Enabled: false
 
 Layout/EmptyLineBetweenDefs: # Single line method definitions don’t need blank lines in-between them.
   AllowAdjacentOneLineDefs: true
