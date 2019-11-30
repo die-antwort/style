@@ -1,3 +1,5 @@
+# Works with: RuboCop 0.77 (maybe also with older / newer versions)
+
 # Disable complexity / length cops
 
 Metrics/AbcSize:
@@ -22,26 +24,12 @@ Metrics/LineLength:
   Enabled: false
 
 
-# Disable performance cops that may lead to less readable code in some cases
-
-Performance/Casecmp:
-  Description: >-
-             Use `casecmp` rather than `downcase ==`, `upcase ==`, `== downcase`, or `== upcase`..
-  Reference: 'https://github.com/JuanitoFatas/fast-ruby#stringcasecmp-vs-stringdowncase---code'
-  Enabled: false
-
-Performance/RedundantMerge:
-  Description: 'Use Hash#[]=, rather than Hash#merge! with a single key-value pair.'
-  Reference: 'https://github.com/JuanitoFatas/fast-ruby#hashmerge-vs-hash-code'
-  Enabled: false
-
-
 # Disable various name and style cops
 
-Naming/UncommunicativeBlockParamName: # If a param name is “communicative” can’t be decided based only on syntax
+Naming/BlockParameterName: # If a param name is “communicative” can’t be decided based only on syntax
   Enabled: false
 
-Naming/UncommunicativeMethodParamName: # If a param name is “communicative” can’t be decided based only on syntax
+Naming/MethodParameterName: # If a param name is “communicative” can’t be decided based only on syntax
   Enabled: false
 
 Naming/VariableNumber: # Both kinds of adding numbers to variables are okay (with and without underscore)
@@ -104,9 +92,6 @@ Style/WordArray: # Especially in nested arrays consistence is important (even if
 
 # Enforce our preferred layout and styling choices
 
-Layout/AlignParameters:
-  EnforcedStyle: with_fixed_indentation
-
 Layout/DotPosition: # Trailing dot works better with intermittent blank lines and copy-pasting into irb
   EnforcedStyle: trailing
 
@@ -116,11 +101,14 @@ Layout/EmptyLines: # Consecutive empty lines are sometimes useful for additional
 Layout/EmptyLineBetweenDefs: # Single line method definitions don’t need blank lines in-between them.
   AllowAdjacentOneLineDefs: true
 
-Layout/IndentArray:
+Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
 
 Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: no_space
