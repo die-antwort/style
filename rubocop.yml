@@ -20,10 +20,6 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Enabled: false
 
-Metrics/LineLength:
-  Enabled: false
-
-
 # Disable various name and style cops
 
 Naming/BlockParameterName: # If a param name is “communicative” can’t be decided based only on syntax
@@ -103,6 +99,9 @@ Layout/EmptyLineBetweenDefs: # Single line method definitions don’t need blank
 
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
+
+Layout/LineLength:
+  Enabled: false
 
 Layout/MultilineMethodCallIndentation:
   EnforcedStyle: indented
