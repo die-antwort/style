@@ -28,6 +28,9 @@ Naming/BlockParameterName: # If a param name is “communicative” can’t be d
 Naming/MethodParameterName: # If a param name is “communicative” can’t be decided based only on syntax
   Enabled: false
 
+Naming/RescuedExceptionsVariableName:
+  Enabled: false
+
 Naming/VariableNumber: # Both kinds of adding numbers to variables are okay (with and without underscore)
   Enabled: false
 
@@ -73,6 +76,15 @@ Style/ParallelAssignment: # Parallel assignment is ok for simple cases
 Style/PerlBackrefs: # Perl-style regex backrefs (`$1`, …) are short and sweet
   Enabled: false
 
+Style/RedundantReturn: # Sometimes an explicit `return` makes the code more clear
+  Enabled: false
+
+Style/RedundantSort: # When used with non-numeric arrays, `#min` / `#max` is not really intuitive
+  Enabled: false
+
+Style/RegexpLiteral: # `%r{...}` is fine even for simple regexps
+  Enabled: false
+
 Style/SingleLineBlockParams: # Block params should be as meaningful as possible
   Enabled: false
 
@@ -88,10 +100,16 @@ Style/WordArray: # Especially in nested arrays consistence is important (even if
 
 # Enforce our preferred layout and styling choices
 
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
 Layout/DotPosition: # Trailing dot works better with intermittent blank lines and copy-pasting into irb
   EnforcedStyle: trailing
 
 Layout/EmptyLines: # Consecutive empty lines are sometimes useful for additional structure
+  Enabled: false
+
+Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
 Layout/EmptyLineBetweenDefs: # Single line method definitions don’t need blank lines in-between them.
@@ -127,6 +145,8 @@ Style/TrailingCommaInArrayLiteral:
 Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: comma
 
+Style/WhileUntilModifier:
+  Enabled: false
 
 # Various
 
