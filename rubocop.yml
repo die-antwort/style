@@ -127,23 +127,17 @@ Layout/MultilineMethodCallIndentation:
 Layout/ParameterAlignment:
   EnforcedStyle: with_fixed_indentation
 
-Layout/SpaceBeforeBlockBraces:
-  EnforcedStyle: no_space
-
-Layout/SpaceInsideHashLiteralBraces:
-  EnforcedStyle: no_space
-
 Style/AndOr: # `and` and `or` may be used for control flow (but not in conditionals)
   EnforcedStyle: conditionals
 
 Style/SpecialGlobalVars: # `$!` is okay, and we don’t use the other Perl-ish globals anyway
   Enabled: false
 
-Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: comma
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
 
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: comma
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
 
 Style/WhileUntilModifier:
   Enabled: false
