@@ -1,8 +1,18 @@
-# Works with: RuboCop 0.77 (maybe also with older / newer versions)
+AllCops:
+  NewCops: enable
+
+  # # Rubocop’s default configuration also excludes `vendor/**/*`. But we have projects where we explicitly want
+  # Exclude:
+  #   - 'node_modules/**/*'
+  #   - 'tmp/**/*'
+  #   - '.git/**/*'
 
 # Disable complexity / length cops
 
 Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
   Enabled: false
 
 Metrics/CyclomaticComplexity:
@@ -43,6 +53,9 @@ Style/BlockDelimiters: # Both do…end and {…} are okay for all kinds of block
 Style/ClassAndModuleChildren: # Both nested and compact namespacing is okay
   Enabled: false
 
+Style/CombinableLoops:
+  Enabled: false
+
 Style/CommentAnnotation:
   Enabled: false
 
@@ -52,6 +65,9 @@ Style/Documentation:
 Style/EmptyCaseCondition: # Sometimes a case statement reads better than if … elsif … end
   Enabled: false
 
+Style/ExplicitBlockArgument:
+  Enabled: false
+
 Style/FormatString: # All `sprintf`, `format`, and `%` are okay for formatting strings
   Enabled: false
 
@@ -59,6 +75,9 @@ Style/FrozenStringLiteralComment: # We enable explicitly on a per-project basis,
   Enabled: false
 
 Style/GuardClause: # Sometimes using a guard clause makes the code harder to follow
+  Enabled: false
+
+Style/HashLikeCase:
   Enabled: false
 
 Style/IfUnlessModifier: # Sometimes using a modifier makes the code harder to read
@@ -83,6 +102,9 @@ Style/RedundantSort: # When used with non-numeric arrays, `#min` / `#max` is not
   Enabled: false
 
 Style/RegexpLiteral: # `%r{...}` is fine even for simple regexps
+  Enabled: false
+
+Style/StringConcatenation:
   Enabled: false
 
 Style/SingleLineBlockParams: # Block params should be as meaningful as possible
@@ -112,11 +134,17 @@ Layout/EmptyLines: # Consecutive empty lines are sometimes useful for additional
 Layout/EmptyLineAfterGuardClause:
   Enabled: false
 
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: false
+
 Layout/EmptyLineBetweenDefs: # Single line method definitions don’t need blank lines in-between them.
   AllowAdjacentOneLineDefs: true
 
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
+
+Layout/HashAlignment:
+  Enabled: false
 
 Layout/LineLength:
   Enabled: false
