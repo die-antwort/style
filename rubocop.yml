@@ -1,3 +1,5 @@
+# For Rubocop version: 1.43
+
 AllCops:
   NewCops: enable
 
@@ -30,7 +32,13 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Enabled: false
 
-# Disable various name and style cops
+# Disable various lint, name and style cops
+
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: false
+
+Lint/SymbolConversion:
+  Enabled: false
 
 Naming/BlockParameterName: # If a param name is “communicative” can’t be decided based only on syntax
   Enabled: false
@@ -44,10 +52,16 @@ Naming/RescuedExceptionsVariableName:
 Naming/VariableNumber: # Both kinds of adding numbers to variables are okay (with and without underscore)
   Enabled: false
 
+Style/AccessorGrouping:
+  Enabled: false
+
 Style/AsciiComments: # Typographic quotes etc. are perfectly okay in comments
   Enabled: false
 
 Style/BlockDelimiters: # Both do…end and {…} are okay for all kinds of blocks
+  Enabled: false
+
+Style/CaseLikeIf:
   Enabled: false
 
 Style/ClassAndModuleChildren: # Both nested and compact namespacing is okay
@@ -59,6 +73,9 @@ Style/CombinableLoops:
 Style/CommentAnnotation:
   Enabled: false
 
+Style/DocumentDynamicEvalDefinition:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
@@ -66,6 +83,9 @@ Style/EmptyCaseCondition: # Sometimes a case statement reads better than if … 
   Enabled: false
 
 Style/ExplicitBlockArgument:
+  Enabled: false
+
+Style/FetchEnvVar:
   Enabled: false
 
 Style/FormatString: # All `sprintf`, `format`, and `%` are okay for formatting strings
@@ -89,10 +109,16 @@ Style/Lambda: # Both `->` and `lambda` are okay for all kinds of procs
 Style/NumericPredicate: # Using `== 0` is okay (in some cases at least)
   Enabled: false
 
+Style/OpenStructUse:
+  Enabled: false
+
 Style/ParallelAssignment: # Parallel assignment is ok for simple cases
   Enabled: false
 
 Style/PerlBackrefs: # Perl-style regex backrefs (`$1`, …) are short and sweet
+  Enabled: false
+
+Style/QuotedSymbols:
   Enabled: false
 
 Style/RedundantReturn: # Sometimes an explicit `return` makes the code more clear
@@ -102,6 +128,12 @@ Style/RedundantSort: # When used with non-numeric arrays, `#min` / `#max` is not
   Enabled: false
 
 Style/RegexpLiteral: # `%r{...}` is fine even for simple regexps
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/SoleNestedConditional:
   Enabled: false
 
 Style/StringConcatenation:
@@ -139,6 +171,7 @@ Layout/EmptyLinesAroundAttributeAccessor:
 
 Layout/EmptyLineBetweenDefs: # Single line method definitions don’t need blank lines in-between them.
   AllowAdjacentOneLineDefs: true
+  NumberOfEmptyLines: [1, 3]
 
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
