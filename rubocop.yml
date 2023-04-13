@@ -1,15 +1,8 @@
-# For Rubocop version: 1.43
+# For Rubocop version: 1.50
 
 AllCops:
   NewCops: enable
 
-  # # Rubocop’s default configuration also excludes `vendor/**/*`. But we have projects where we explicitly want
-  # Exclude:
-  #   - 'node_modules/**/*'
-  #   - 'tmp/**/*'
-  #   - '.git/**/*'
-
-# Disable complexity / length cops
 
 Metrics/AbcSize:
   Enabled: false
@@ -17,7 +10,13 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Enabled: false
 
+Metrics/CollectionLiteralLength:
+  Enabled: false
+
 Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/ParameterLists:
   Enabled: false
 
 Metrics/PerceivedComplexity:
@@ -32,12 +31,24 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Enabled: false
 
-# Disable various lint, name and style cops
+
+Lint/AmbiguousBlockAssociation: # Allow idiomatic use in RSpec expectations
+  AllowedPatterns: "change"
 
 Lint/AmbiguousOperatorPrecedence:
   Enabled: false
 
+Lint/DuplicateBranch:
+  Enabled: false
+
 Lint/SymbolConversion:
+  Enabled: false
+
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Naming/BlockForwarding:
   Enabled: false
 
 Naming/BlockParameterName: # If a param name is “communicative” can’t be decided based only on syntax
@@ -52,7 +63,14 @@ Naming/RescuedExceptionsVariableName:
 Naming/VariableNumber: # Both kinds of adding numbers to variables are okay (with and without underscore)
   Enabled: false
 
+
 Style/AccessorGrouping:
+  Enabled: false
+
+Style/AndOr: # `and` and `or` may be used for control flow (but not in conditionals)
+  EnforcedStyle: conditionals
+
+Style/ArrayIntersect:
   Enabled: false
 
 Style/AsciiComments: # Typographic quotes etc. are perfectly okay in comments
@@ -73,6 +91,9 @@ Style/CombinableLoops:
 Style/CommentAnnotation:
   Enabled: false
 
+Style/CommentedKeyword:
+  Enabled: false
+
 Style/DocumentDynamicEvalDefinition:
   Enabled: false
 
@@ -91,6 +112,9 @@ Style/FetchEnvVar:
 Style/FormatString: # All `sprintf`, `format`, and `%` are okay for formatting strings
   Enabled: false
 
+Style/FormatStringToken:
+  Enabled: false
+
 Style/FrozenStringLiteralComment: # We enable explicitly on a per-project basis, if needed
   Enabled: false
 
@@ -100,10 +124,29 @@ Style/GuardClause: # Sometimes using a guard clause makes the code harder to fol
 Style/HashLikeCase:
   Enabled: false
 
+Style/HashSyntax:
+  Enabled: false
+
 Style/IfUnlessModifier: # Sometimes using a modifier makes the code harder to read
   Enabled: false
 
 Style/Lambda: # Both `->` and `lambda` are okay for all kinds of procs
+  Enabled: false
+
+Style/LambdaCall: # Allow idiomatic Jbuilder usage `json.(@foo, :bar, :baz)`
+  Exclude:
+    -  '**/*.jbuilder'
+
+Style/MultilineBlockChain:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/NegatedIfElseCondition:
+  Enabled: false
+
+Style/NumericLiterals:
   Enabled: false
 
 Style/NumericPredicate: # Using `== 0` is okay (in some cases at least)
@@ -121,6 +164,9 @@ Style/PerlBackrefs: # Perl-style regex backrefs (`$1`, …) are short and sweet
 Style/QuotedSymbols:
   Enabled: false
 
+Style/RedundantInitialize:
+  Enabled: false
+
 Style/RedundantReturn: # Sometimes an explicit `return` makes the code more clear
   Enabled: false
 
@@ -133,7 +179,13 @@ Style/RegexpLiteral: # `%r{...}` is fine even for simple regexps
 Style/SafeNavigation:
   Enabled: false
 
+Style/Semicolon:
+  AllowAsExpressionSeparator: true
+
 Style/SoleNestedConditional:
+  Enabled: false
+
+Style/SpecialGlobalVars: # `$!` is okay, and we don’t use the other Perl-ish globals anyway
   Enabled: false
 
 Style/StringConcatenation:
@@ -145,14 +197,24 @@ Style/SingleLineBlockParams: # Block params should be as meaningful as possible
 Style/StringLiterals: # Both '…' and "…" are okay for all kinds of strings
   Enabled: false
 
+Style/SymbolProc:
+  AllowMethodsWithArguments: true
+
 Style/TrailingCommaInArguments: # Multiline parameter might use trailing commas (like in literals)
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/WhileUntilModifier:
   Enabled: false
 
 Style/WordArray: # Especially in nested arrays consistence is important (even if some of the inner arrays could be replace by word arrays)
   Enabled: false
 
-
-# Enforce our preferred layout and styling choices
 
 Layout/ArgumentAlignment:
   EnforcedStyle: with_fixed_indentation
@@ -176,10 +238,17 @@ Layout/EmptyLineBetweenDefs: # Single line method definitions don’t need blank
 Layout/FirstArrayElementIndentation:
   EnforcedStyle: consistent
 
+Layout/FirstHashElementIndentation:
+  EnforcedStyle: consistent
+
 Layout/HashAlignment:
-  Enabled: false
+  EnforcedColonStyle: [key, table]
+  EnforcedHashRocketStyle: [key, table]
 
 Layout/LineLength:
+  Enabled: false
+
+Layout/MultilineBlockLayout:
   Enabled: false
 
 Layout/MultilineMethodCallIndentation:
@@ -190,33 +259,7 @@ Layout/ParameterAlignment:
 
 Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: no_space
+  EnforcedStyleForEmptyBraces: no_space
 
 Layout/SpaceInsideHashLiteralBraces:
   EnforcedStyle: no_space
-
-Style/AndOr: # `and` and `or` may be used for control flow (but not in conditionals)
-  EnforcedStyle: conditionals
-
-Style/SpecialGlobalVars: # `$!` is okay, and we don’t use the other Perl-ish globals anyway
-  Enabled: false
-
-Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: comma
-
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: comma
-
-Style/WhileUntilModifier:
-  Enabled: false
-
-# Various
-
-Style/HashSyntax: # Allow hash rockets for task dependencies in Rakefiles and for Capistrano
-  Exclude:
-    - '**/*.rake'
-    - 'config/deploy.rb'
-    - 'config/deploy/*.rb'
-
-Style/LambdaCall: # Allow idiomatic Jbuilder usage `json.(@foo, :bar, :baz)`
-  Exclude:
-    -  '**/*.jbuilder'
